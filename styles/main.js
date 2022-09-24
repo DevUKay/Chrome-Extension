@@ -12,7 +12,7 @@ for (i = 0; i < myLeads.length; i++) {
     ulEl.innerHTML += "<li>" + myLeads[i] + "</li>"
 }
 
-///////Below here! ///////////////// praticing rendering HTML code through JS
+//////////////////////// Below here!| praticing rendering HTML code through JS
 
 let buyBtn = document.getElementById('container')
 
