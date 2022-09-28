@@ -7,7 +7,7 @@ body {
 input {
     display: inline-block;
     height: 40px;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #5f9341;
@@ -24,4 +24,23 @@ button{
 
 button:active{
     background-color: #88c267;
+}
+
+li a{
+    color: #5f9341;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li{
+    margin-top: 5px;
 }

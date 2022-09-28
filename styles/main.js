@@ -5,7 +5,7 @@ const ulEl = document.getElementById("ul-el")
 
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
-    // console.log(myLeads)
+    inputEl.value = ""
     renderLeads()
 })
 
@@ -14,10 +14,17 @@ inputBtn.addEventListener("click", function() {
 
 function renderLeads() {
     
-    let listItems = " "
+    let listItems = ""
     for (i = 0; i < myLeads.length; i++) {
-        listItems += "<li>" + myLeads[i] + "</li>"
-        console.log(listItems)
+        // listItems += "<li> <a target='_blank' href= " +  myLeads[i] + "'>" + myLeads[i] + "</a></li>"
+        listItems += `
+            <li>
+                <a target='_blank' href='${myLeads[i]}'>
+                    ${myLeads[i]}
+                </a>
+            </li>
+        `
+        // console.log(listItems)
     }
     
     ulEl.innerHTML = listItems
@@ -25,7 +32,8 @@ function renderLeads() {
 }
 
 
-//////////////////////// Below here!| praticing rendering HTML code through JS
+//////////////////////// 
+// Below here!| praticing rendering HTML code through JS
 
 // let buyBtn = document.getElementById('container')
 
@@ -33,3 +41,16 @@ function renderLeads() {
 // function buy() {
 //     buyBtn.innerHTML += "<p> Thank you for Buying! </p>"
 // }
+
+/////////////////////////////////////////
+// template literal or strings
+
+// const recipient = "James"
+// const sender = "kingsley"
+
+// const email = `
+//             Hey ${recipient}!
+//             How is it going
+//             Cheers ${sender}`
+
+// console.log(email)
