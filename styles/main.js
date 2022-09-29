@@ -8,21 +8,36 @@ const leadsFromLocalStorage = JSON.parse( localStorage.getItem(myLeads) )
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
-    renderLeads()
+    render(myLeads)
 }
 
-deleteBtn.addEventListener( "dblclick", function(){
-    console.log('double Clicked!')
+
+function render(leads) {
+    
+    let listItems = ""
+    for (i = 0; i < leads.length; i++) {
+        listItems += `
+            <li>
+                <a target='_blank' href='${leads[i]}'>
+                    ${leads[i]}
+                </a>
+            </li>
+        `
+    }
+    ulEl.innerHTML = listItems
+}
+
+deleteBtn.addEventListener( "dblclick", function() {
     localStorage.clear()
     myLeads = []
-    renderLeads()
+    render(myLeads)
 })
 
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
     inputEl.value = ""
     localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-    renderLeads()
+    render(myLeads)
 
     console.log( localStorage.getItem("myLeads"))
 })
@@ -30,24 +45,6 @@ inputBtn.addEventListener("click", function() {
 
 
 
-function renderLeads() {
-    
-    let listItems = ""
-    for (i = 0; i < myLeads.length; i++) {
-        // listItems += "<li> <a target='_blank' href= " +  myLeads[i] + "'>" + myLeads[i] + "</a></li>"
-        listItems += `
-            <li>
-                <a target='_blank' href='${myLeads[i]}'>
-                    ${myLeads[i]}
-                </a>
-            </li>
-        `
-        // console.log(listItems)
-    }
-    
-    ulEl.innerHTML = listItems
-
-}
 
 
 //////////////////////// 
@@ -72,3 +69,22 @@ function renderLeads() {
 //             Cheers ${sender}`
 
 // console.log(email)
+
+/////////////////////
+
+// const welcomeEl = document.getElementById("welcome-el")
+
+// function greet(salute, name, emoji) {
+//     welcomeEl.textContent = ` ${salute}, ${name} ${emoji}`
+// }
+
+// greet("Whats up", "Kingsley", "👌🏾")
+
+/////////////////////////////////
+
+function add(v1, v2) {
+    return(v1 + v2)
+}
+
+console.log( add(3,4) )
+console.log( add(9, 102) )
